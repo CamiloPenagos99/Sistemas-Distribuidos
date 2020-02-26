@@ -6,7 +6,7 @@ Solución primer laboratorio del curso  **Sistema Distribuidos**
 
 **Julián Santiago Tauta Chaparro - A00022232**
 
-**Santiago José Narváez Prado - A00027544 **
+**Santiago José Narváez Prado - A00027544**
 
 ## Proceso
 
