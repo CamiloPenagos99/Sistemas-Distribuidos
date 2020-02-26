@@ -2,7 +2,11 @@
 
 Solución primer laboratorio del curso  **Sistema Distribuidos**
 
-**Camilo Penagos Orejuela A00301416 **
+**Camilo Penagos Orejuela - A00301416**
+
+**Julián Santiago Tauta Chaparro - A00022232**
+
+**Santiago José Narváez Prado - A00027544 **
 
 ## Proceso
 
