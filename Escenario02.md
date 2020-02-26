@@ -2,6 +2,12 @@
 
 Solución del segundo taller **Sistemas Distribuidos**
 
+**Camilo Penagos Orejuela - A00301416**
+
+**Julián Santiago Tauta Chaparro - A00022232**
+
+**Santiago José Narváez Prado - A00027544**
+
 ## Proceso
 
 1. **Maquina Virtual CentOS7:** Para crear la primera maquina virtual con Vagran, es necesario usar la consola de Visual Studio Code. Se unica la ruta (path) del archivo Vagranfile y mediante el comando **vagrant up** se hace efectiva la instalación de la MV en Virtual Box, usando como proovedor **Virtual Box.**
