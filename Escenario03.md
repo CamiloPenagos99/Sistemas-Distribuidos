@@ -22,6 +22,7 @@
 
 ###### 2. Después, se procedió a configurar el archivo VagrantFile así como se muestra en la siguiete imagen:
  <img src ="https://drive.google.com/open?id=1uc6AX0PfMrzez0AQDzIGbeTN37gom1Pj">
+ [google]: https://drive.google.com/open?id=1uc6AX0PfMrzez0AQDzIGbeTN37gom1Pj
 
 ###### 3. Paso a seguir, se configuró Ansible para establecer como servicio la base de datos, la cual corresponde a MongoDB. La configuración de Ansible se muestra a continuación:
  <img src ="https://drive.google.com/open?id=1WR7s0QBSQzgIOasTAYjXkSvJVA3_o7QX">
