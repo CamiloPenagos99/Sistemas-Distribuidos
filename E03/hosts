@@ -1,0 +1,7 @@
+server_provision
+
+[database]
+ServerDB ansible_host=192.168.56.2
+
+[webserver]
+ServerApp ansible_host=192.168.56.3

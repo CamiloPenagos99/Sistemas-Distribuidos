@@ -1,0 +1,90 @@
+#database installation
+- hosts: ServerDB
+  become: yes
+  become_user: root
+  become_method: sudo
+    
+  tasks:
+
+    - name: install mongodb
+      apt: 
+        name: mongodb
+
+    - name: copy config file
+      copy:
+        src: ../mongodb.conf
+        dest: /etc/mongodb.conf
+        owner: root
+        group: root
+        mode: 0644
+     
+    - name: Permissions
+      shell: |
+        mkdir -p /data/db/
+    - name: Permissions 2
+      shell: |
+        chown `id -u` /data/db
+        
+    - name: close
+      shell: |
+        pkill mongod
+    - name: Ensure mongodb is running and and enabled to start automatically on reboots
+      systemd:
+        name: mongodb
+        enabled: yes
+        state: started
+
+    
+
+
+# web server installation
+- hosts: ServerApp
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: sudo
+
+  vars:
+    NODEJS_VERSION: "8"
+
+  tasks:
+
+    - name: Install the gpg key for nodejs LTS
+      apt_key:
+        url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+        state: present
+    
+    - name: Install the nodejs LTS repos
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_{{ NODEJS_VERSION }}.x {{ ansible_distribution_release }} main"
+        state: present
+        update_cache: yes
+
+    - name: Install the nodejs
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Install git
+      apt:
+        name: git
+        state: present
+
+    - name: Git Clone Repo
+      git: repo=https://github.com/julianstauta/W1Scenary3.git dest=~/app update=yes force=yes accept_hostkey=yes
+      register: git_finished
+
+    - name: Running NPM install
+      npm: path=~/app/server
+      register: npm_finished
+      when: git_finished.changed
+
+    - name: Install npm deps
+      shell: npm run dev &> /dev/null
+      when: git_finished.changed
+      args:
+        chdir: ~/app/server
+
+    
+
+
